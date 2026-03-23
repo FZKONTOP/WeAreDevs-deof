@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: luau-decompiler-bot
+    runtime: python
+    region: oregon
+    plan: free
+
+    buildCommand: bash build.sh
+    startCommand: python bot.py
+
+    envVars:
+      - key: DISCORD_TOKEN
+        sync: false
+      - key: PYTHON_VERSION
+        value: "3.11.0"
+      - key: LUAU_BIN
+        value: /opt/render/project/src/vendor/bin/luau
